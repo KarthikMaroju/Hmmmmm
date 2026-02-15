@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karthik Maroju - Full Stack Developer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> <!-- FontAwesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script> <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script> <!-- GSAP -->
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loader">Loading Portfolio...</div>
+    </div>
+
+    <!-- 3D Galaxy Background Canvas -->
+    <canvas id="galaxy-bg"></canvas>
+
+    <!-- Sidebar Navigation -->
+    <div id="sidebar">
+        <i class="fas fa-times close-icon" id="close-sidebar"></i>
+        <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div id="theme-toggle">
+            <i class="fas fa-sun"></i> / <i class="fas fa-moon"></i>
+        </div>
+    </div>
+
+    <!-- Sticky Navbar -->
+    <nav id="navbar">
+        <i class="fas fa-bars menu-icon" id="open-sidebar"></i>
+        <div class="nav-links">
+            <!-- Theme toggle in navbar for desktop -->
+            <div id="theme-toggle-desktop">
+                <i class="fas fa-sun"></i> / <i class="fas fa-moon"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Sections (Scroll Snap) -->
+    <main class="scroll-container">
+        <!-- Hero Section -->
+        <section id="hero" class="section">
+            <div class="glass-card">
+                <img src="assets/images/profile.jpg" alt="Karthik Maroju" class="profile-img">
+                <h1>Karthik Maroju</h1>
+                <h2 id="typing-subtitle"></h2>
+                <a href="assets/resume.pdf" download class="cta-btn glow">Download Resume</a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="glass-card floating">
+                <h2>About Me</h2>
+                <p>As a Full Stack Developer and 3D UI Engineer with a startup mindset, I architect scalable systems that blend cutting-edge frontend experiences with robust Python backends. My expertise in AI integration enables intelligent features like real-time chatbots, while my backend architecture knowledge ensures secure, performant applications. With hands-on experience in 3D UIs using Three.js, I create immersive interfaces that push the boundaries of web design. I've led projects from ideation to deployment, emphasizing agile methodologies and user-centric innovation.</p>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <h2>Projects</h2>
+            <div class="project-grid">
+                <div class="project-card" data-modal="project1">
+                    <h3>3D Portfolio Website</h3>
+                    <p>Interactive 3D web experience using Three.js and GSAP.</p>
+                </div>
+                <div class="project-card" data-modal="project2">
+                    <h3>Theatre Booking System (Python)</h3>
+                    <p>Backend-driven booking app with Flask and MongoDB.</p>
+                </div>
+                <div class="project-card" data-modal="project3">
+                    <h3>AI-Integrated Web System</h3>
+                    <p>Full stack app with OpenAI for dynamic content generation.</p>
+                </div>
+            </div>
+            <!-- Modal -->
+            <div id="project-modal" class="modal">
+                <div class="modal-content">
+                    <i class="fas fa-times close-modal"></i>
+                    <div id="modal-body"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section">
+            <h2>Skills</h2>
+            <div id="skill-cube-container"></div> <!-- 3D Cube -->
+            <div class="progress-bars">
+                <div class="skill-bar"><span>HTML</span><div class="bar" style="width: 95%;"></div></div>
+                <div class="skill-bar"><span>CSS</span><div class="bar" style="width: 90%;"></div></div>
+                <div class="skill-bar"><span>JavaScript</span><div class="bar" style="width: 85%;"></div></div>
+                <div class="skill-bar"><span>Python</span><div class="bar" style="width: 95%;"></div></div>
+                <div class="skill-bar"><span>Flask</span><div class="bar" style="width: 90%;"></div></div>
+                <div class="skill-bar"><span>MongoDB</span><div class="bar" style="width: 85%;"></div></div>
+                <div class="skill-bar"><span>Git</span><div class="bar" style="width: 90%;"></div></div>
+                <div class="skill-bar"><span>UI/UX</span><div class="bar" style="width: 88%;"></div></div>
+            </div>
+        </section>
+
+        <!-- Contact + AI Section -->
+        <section id="contact" class="section">
+            <div class="contact-container">
+                <form id="contact-form">
+                    <input type="text" name="name" placeholder="Name" required>
+                    <input type="email" name="email" placeholder="Email" required>
+                    <textarea name="message" placeholder="Message" required></textarea>
+                    <button type="submit" class="cta-btn glow">Submit</button>
+                </form>
+                <div id="social-icons">
+                    <a href="https://linkedin.com/in/karthik-maroju" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/karthik-maroju" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.instagram.com/mr.karthik1_4_3_" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <!-- AI Chat Widget -->
+            <div id="chat-widget">
+                <div id="chat-header">AI Assistant <i class="fas fa-times close-chat"></i></div>
+                <div id="chat-body"></div>
+                <input id="chat-input" placeholder="Ask me anything...">
+                <button id="chat-send">Send</button>
+            </div>
+            <i class="fas fa-robot chat-toggle"></i> <!-- Floating toggle -->
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+  </html>
