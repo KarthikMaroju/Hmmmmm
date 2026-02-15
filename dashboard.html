@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Admin Dashboard</title>
+    <style> body { font-family: Arial; } table { border-collapse: collapse; width: 100%; } th, td { border: 1px solid #ddd; padding: 8px; } </style>
+</head>
+<body>
+    <h1>Contact Messages</h1>
+    <table>
+        <tr><th>Name</th><th>Email</th><th>Message</th><th>Timestamp</th></tr>
+        {% for msg in contacts %}
+        <tr><td>{{ msg.name }}</td><td>{{ msg.email }}</td><td>{{ msg.message }}</td><td>{{ msg.timestamp }}</td></tr>
+        {% endfor %}
+    </table>
+    <h1>Chat Logs</h1>
+    <table>
+        <tr><th>User</th><th>AI Reply</th><th>Timestamp</th></tr>
+        {% for log in chats %}
+        <tr><td>{{ log.user }}</td><td>{{ log.ai }}</td><td>{{ log.timestamp }}</td></tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
